@@ -35,11 +35,7 @@
             <div class="mb-3">
                 <label for="">Asignar Empleado</label>
                 <select id="" class="form-control" name="id_employee">
-<<<<<<< HEAD
-                    <?php foreach ($data_employees as $employee) { ?>
-=======
                     <?php foreach($data_employees as $employee) { ?>
->>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
                         <option value="<?php echo $employee['id_employee'] ?>"><?php echo $employee['name']; ?></option>
                     <?php } ?>
                 </select>
@@ -49,22 +45,6 @@
     </main>
 
     <?php
-<<<<<<< HEAD
-    if (isset($_POST['id_task'], $_POST['title'], $_POST['description'], $_POST['id_employee'])) {
-        $id_task = $_POST['id_task'];
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $id_employee = $_POST['id_employee'];
-
-        $task=new TaskModel($id_task,$title,$description,$id_employee);
-        ManagerController::createTask($task);
-    }
-
-
-
-
-
-=======
 
         // if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //     $id = $_POST['id_task'];
@@ -85,7 +65,6 @@
             ManagerController::createTask($task);
         }
         
->>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
     ?>
 </body>
 

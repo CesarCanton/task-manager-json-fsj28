@@ -34,13 +34,8 @@
                         <td><?php echo $task['status']; ?></td>
                         <td><?php echo $task['id_employee']; ?></td>
                         <td>
-<<<<<<< HEAD
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-primary">Estado</button>
-=======
                             <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
                             <button class="btn btn-danger">Cambiar Estado</button>
->>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
                         </td>
                     </tr>
 

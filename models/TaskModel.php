@@ -79,19 +79,7 @@ class TaskModel
         $found_task = false;
         foreach ($list_tasks as &$task) { // El & significa una referencia en donde se
             // modificara especificamente ese elemento, no que se creara una copia y solo la copia se modificaria en el caso en donde no este el &
-
-<<<<<<< HEAD
-            
-            //condicionando si la tarea se encuentra en la lista
-            if ($task['id_task'] == $id_task) {
-                $found_task = true;
-                $task['title'] = $title;
-                $task['description'] = $description;
-                break; //hacemos un break para que ya no se iteren las demas tareas.
-            }
-        }
-    }
-=======
+        }}
     public static function edit($id_task, $title, $description){
 
         //iteramos la lista de tareas del json (decodificadas)
@@ -119,5 +107,4 @@ class TaskModel
         }
     }
 
->>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
 }
