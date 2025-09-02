@@ -21,7 +21,7 @@
         <form action="" method="POST">
             <div class="mb-3">
                 <label for="">Id Tarea</label>
-                <input type="number" class="form-control" name="id_task">
+                <input type="number" class="form-control" name="id_task" >
             </div>
             <div class="mb-3">
                 <label for="">Titulo</label>
@@ -35,7 +35,11 @@
             <div class="mb-3">
                 <label for="">Asignar Empleado</label>
                 <select id="" class="form-control" name="id_employee">
+<<<<<<< HEAD
                     <?php foreach ($data_employees as $employee) { ?>
+=======
+                    <?php foreach($data_employees as $employee) { ?>
+>>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
                         <option value="<?php echo $employee['id_employee'] ?>"><?php echo $employee['name']; ?></option>
                     <?php } ?>
                 </select>
@@ -45,6 +49,7 @@
     </main>
 
     <?php
+<<<<<<< HEAD
     if (isset($_POST['id_task'], $_POST['title'], $_POST['description'], $_POST['id_employee'])) {
         $id_task = $_POST['id_task'];
         $title = $_POST['title'];
@@ -59,6 +64,28 @@
 
 
 
+=======
+
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //     $id = $_POST['id_task'];
+        //     $title = $_POST['title'];
+        //     $description = $_POST['description'];
+        //     $employee = $_POST['id_employee'];
+
+        // }
+        //isset() => verifica si hay datos o no hay datos
+        if(isset($_POST['id_task'],  $_POST['title'], $_POST['description'], $_POST['id_employee'])){
+
+            $id = $_POST['id_task'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $employee = $_POST['id_employee'];
+
+            $task = new TaskModel($id, $title, $description, $employee);
+            ManagerController::createTask($task);
+        }
+        
+>>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
     ?>
 </body>
 

@@ -80,6 +80,7 @@ class TaskModel
         foreach ($list_tasks as &$task) { // El & significa una referencia en donde se
             // modificara especificamente ese elemento, no que se creara una copia y solo la copia se modificaria en el caso en donde no este el &
 
+<<<<<<< HEAD
             
             //condicionando si la tarea se encuentra en la lista
             if ($task['id_task'] == $id_task) {
@@ -90,4 +91,33 @@ class TaskModel
             }
         }
     }
+=======
+    public static function edit($id_task, $title, $description){
+
+        //iteramos la lista de tareas del json (decodificadas)
+        $list_tasks = self::all();
+        //variable booleana para actualizar una tarea
+        $found_task = false;
+
+        //referencia
+        foreach($list_tasks as &$task){
+            //condicionando si la tarea se encuentra en la lista
+            if($task['id_task'] == $id_task){
+                $found_task = true;
+                $task['title'] = $title;
+                $task['description'] = $description;
+                //hacemos un break para que ya no se iteren las demas tareas
+                break;
+            }
+        }
+
+        //validamos si la tarea se encontro
+        if($found_task){
+            self::loadJSON($list_tasks);
+        }else{
+            return "No se encontro la tarea";
+        }
+    }
+
+>>>>>>> 63da968fb7e614778a82a4cedd65be58ca059fc2
 }
