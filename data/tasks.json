@@ -30,5 +30,21 @@
         "date": "2025-08-28",
         "status": "Pendiente",
         "id_employee": 3
+    },
+    {
+        "id_task": 5,
+        "title": "prueba",
+        "description": "ta chida X3",
+        "date": "2025-09-02",
+        "status": "Pendiente",
+        "id_employee": "1"
+    },
+    {
+        "id_task": "6",
+        "title": "\u00f1e",
+        "description": "\u00f1e",
+        "date": "2025-09-02",
+        "status": "Pendiente",
+        "id_employee": "1"
     }
 ]

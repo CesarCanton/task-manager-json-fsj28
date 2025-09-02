@@ -35,6 +35,7 @@
                         <td><?php echo $task['id_employee']; ?></td>
                         <td>
                             <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-primary">Estado</button>
                         </td>
                     </tr>
                 <?php } ?>

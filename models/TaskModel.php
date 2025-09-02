@@ -4,7 +4,8 @@
 
 // guardar tarea, listar todas las tareas, editar tarea (JSON)
 
-class TaskModel{
+class TaskModel
+{
     public $id_task;
     public $title;
     public $description;
@@ -26,9 +27,10 @@ class TaskModel{
     }
 
     //metodo para obtener todas las tareas del json
-    public static function all(){
+    public static function all()
+    {
         //SELECT * FROM table
-        if(file_exists(self::$file_path)){
+        if (file_exists(self::$file_path)) {
             //obteniendo el archivo json
             $data_json = file_get_contents(self::$file_path);
             //print_r($data_json);
@@ -41,7 +43,8 @@ class TaskModel{
     }
 
     //metodo que va cargar el json y lo va actualizar
-    private static function loadJSON($array_tasks){
+    private static function loadJSON($array_tasks)
+    {
         //metodo que nos ayude actualizar el JSON
         //codificar el arreglo de PHP a un formato de tipo JSON
         $data_json = json_encode($array_tasks, JSON_PRETTY_PRINT);
@@ -49,7 +52,8 @@ class TaskModel{
     }
 
     //metodo para guardar una tarea
-    public function save(){
+    public function save()
+    {
 
         $list_tasks = self::all(); //devuelve el arreglo de las tareas que hay en el json
 
@@ -68,6 +72,22 @@ class TaskModel{
         self::loadJSON($list_tasks);
         return "Se ha guardado correctamente";
     }
+    public static function editTask($id_task, $title, $description)
+    {
+        $list_tasks = self::all();
+        //variable booleana para actualizar una tarea
+        $found_task = false;
+        foreach ($list_tasks as &$task) { // El & significa una referencia en donde se
+            // modificara especificamente ese elemento, no que se creara una copia y solo la copia se modificaria en el caso en donde no este el &
 
-
+            
+            //condicionando si la tarea se encuentra en la lista
+            if ($task['id_task'] == $id_task) {
+                $found_task = true;
+                $task['title'] = $title;
+                $task['description'] = $description;
+                break; //hacemos un break para que ya no se iteren las demas tareas.
+            }
+        }
+    }
 }
